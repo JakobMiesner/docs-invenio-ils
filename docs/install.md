@@ -56,7 +56,7 @@ This will install dependencies, builds assets, create demo static pages, seed th
 #### Run the backend server
 
 ```console
-FLASK_ENV=development pipenv run invenio run --cert docker/backend/test.crt --key docker/backend/test.key
+FLASK_ENV=development invenio run --cert docker/backend/test.crt --key docker/backend/test.key
 ```
 
 Now visit [https://127.0.0.1:5000](https://127.0.0.1:5000) (accept the self-signed certificate warning if proposed). You should now see the InvenioILS backend.
@@ -65,7 +65,7 @@ Now visit [https://127.0.0.1:5000](https://127.0.0.1:5000) (accept the self-sign
 If this is not the desired behaviour, you can by-pass it with:
 
   1. Changing `REACT_APP_INVENIO_UI_URL` and `REACT_APP_INVENIO_REST_ENDPOINTS_BASE_URL` variables in `ui/.env` file to run on `http` instead of `https`.
-  2. Running the server without specifying the certificate: `FLASK_ENV=development pipenv run invenio run`
+  2. Running the server without specifying the certificate: `FLASK_ENV=development invenio run`
 
 #### Run the celery worker. 
 
@@ -73,7 +73,7 @@ In a new terminal.
 Make sure you are in the project folder (`my-site`) then run:
 
 ```bash
-pipenv run celery -A invenio_app.celery worker -l INFO
+celery -A invenio_app.celery worker -l INFO
 ```
 
 ### 5. Install UI dependencies
